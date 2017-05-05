@@ -5,6 +5,9 @@
  * User: ek
  * Date: 02.05.2017
  */
+
+namespace Kartoteka;
+
 class Api
 {
     private $_url = 'https://api.kartoteka.by/';
