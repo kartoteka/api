@@ -1,5 +1,7 @@
 {
   "name": "kartoteka/api",
+  "keywords": ["kartoteka.by","api.kartoteka.by"],
+  "description": "Library for working with api.kartoteka.by",
   "require": {
     "php": ">=5.3.0"
   },

@@ -88,12 +88,18 @@ class Api
 
         curl_setopt($curl, CURLOPT_URL, $this->_url . $queryString);
         $json = curl_exec($curl);
-//        $info = curl_getinfo($curl);
+        $info = curl_getinfo($curl);
         $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
 
         if ($httpcode !== 200) {
-            throw new Exception('Server error', 500);
+
+            d($info);
+            d($json);
+            d($httpcode);
+            die;
+
+            throw new \Exception('Server error', 500);
         }
 
         $data = json_decode($json, true);
@@ -116,7 +122,7 @@ class Api
 
         try {
             $data = $this->sendRequest($queryString);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->addErrors('Curl request is fail.');
 
             return false;
